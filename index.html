@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Disaster Response Platform</title>
+  <title>Disaster Relief Connect</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="logo" href="Logo.png">
+  <link rel="logo" hreff="Logo.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     rel="stylesheet"
@@ -19,7 +19,7 @@
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
   <header class="bg-blue-700 text-white flex justify-between items-center">
-    <h1 class="text-xl font-bold">Disaster Response Platform</h1>
+    <h1 class="text-xl font-bold">Disaster Relief Connect</h1>
     <div>
       <button
         id="lang-en"
@@ -123,6 +123,7 @@
     <!-- Relief Camp Information -->
     <section id="relief" class="screen hidden">
       <h2 class="text-2xl font-bold mb-4" data-i18n="relief_title">Relief Camp Information</h2>
+      <div id="relief-map" class="mb-4" style="height: 300px; border-radius: 1rem; box-shadow: 0 8px 20px rgba(5, 150, 105, 0.15);"></div>
       <ul id="relief-list" class="space-y-4">
         <!-- Relief camp items inserted by JS -->
       </ul>
@@ -141,7 +142,7 @@
   </main>
 
   <footer class="bg-gray-200 text-center text-sm">
-    &copy; 2025 Disaster Response Platform
+    &copy; 2025 Disaster Relief Connect
   </footer>
 
   <script src="script.js"></script>
