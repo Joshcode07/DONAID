@@ -1,4 +1,4 @@
-# Disaster Response Platform
+# Disaster Relief Connect
 
 This is a responsive web application designed to provide real-time disaster response information. It helps users check their safety status, find safe shelters, get detailed relief camp information, and view NGO dashboard statistics.
 
