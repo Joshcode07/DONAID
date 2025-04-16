@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Disaster Response Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="logo" href="Logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-blue-700 text-white flex justify-between items-center">
+    <h1 class="text-xl font-bold">Disaster Response Platform</h1>
+    <div>
+      <button
+        id="lang-en"
+        class="px-3 py-1 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white"
+        aria-label="Switch to English"
+      >
+        English
+      </button>
+      <button
+        id="lang-ta"
+        class="px-3 py-1 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white"
+        aria-label="Switch to Tamil"
+      >
+        தமிழ்
+      </button>
+    </div>
+  </header>
+
+  <nav class="bg-white shadow flex justify-center space-x-4 p-3 sticky top-0 z-10">
+    <button
+      class="nav-btn text-gray-700 font-semibold focus:outline-none"
+      data-target="home"
+      aria-current="page"
+    >
+      <i class="fas fa-home mr-1"></i><span data-i18n="nav_home">Home</span>
+    </button>
+    <button
+      class="nav-btn text-gray-700 font-semibold focus:outline-none"
+      data-target="shelters"
+    >
+      <i class="fas fa-map-marker-alt mr-1"></i><span data-i18n="nav_shelters">Safe Shelter Finder</span>
+    </button>
+    <button
+      class="nav-btn text-gray-700 font-semibold focus:outline-none"
+      data-target="relief"
+    >
+      <i class="fas fa-hands-helping mr-1"></i><span data-i18n="nav_relief">Relief Camp Info</span>
+    </button>
+    <button
+      class="nav-btn text-gray-700 font-semibold focus:outline-none"
+      data-target="ngo"
+    >
+      <i class="fas fa-chart-bar mr-1"></i><span data-i18n="nav_ngo">NGO Dashboard</span>
+    </button>
+  </nav>
+
+  <main class="flex-grow w-full mx-auto">
+    <!-- Home Screen -->
+    <section id="home" class="screen">
+      <h2 class="text-2xl font-bold mb-4" data-i18n="home_title">Check Your Safety</h2>
+      <p class="mb-4" data-i18n="home_desc">
+        Share or enter your location to check if you are in a disaster-affected zone.
+      </p>
+      <p class="mb-6 text-gray-700">
+        Stay informed and prepared with real-time updates and resources to help you and your community during emergencies.
+      </p>
+      <div class="mb-4">
+        <button
+          id="btn-share-location"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          data-i18n="btn_share_location"
+        >
+          Share My Location
+        </button>
+      </div>
+      <div class="mb-4">
+        <label for="input-location" class="block mb-1 font-semibold" data-i18n="label_enter_location">Enter Location:</label>
+        <input
+          type="text"
+          id="input-location"
+          placeholder="City, Address, or Coordinates"
+          class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+          aria-label="Enter location"
+        />
+      </div>
+      <div>
+        <button
+          id="btn-check-location"
+          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400"
+          data-i18n="btn_check_location"
+        >
+          Check Safety
+        </button>
+      </div>
+      <div
+        id="location-result"
+        class="mt-6 p-4 rounded text-center font-semibold text-lg"
+        aria-live="polite"
+        aria-atomic="true"
+      ></div>
+    </section>
+
+    <!-- Safe Shelter Finder -->
+    <section id="shelters" class="screen hidden">
+      <h2 class="text-2xl font-bold mb-4" data-i18n="shelters_title">Safe Shelter Finder</h2>
+      <ul id="shelter-list" class="space-y-4">
+        <!-- Shelter items inserted by JS -->
+      </ul>
+    </section>
+
+    <!-- Relief Camp Information -->
+    <section id="relief" class="screen hidden">
+      <h2 class="text-2xl font-bold mb-4" data-i18n="relief_title">Relief Camp Information</h2>
+      <ul id="relief-list" class="space-y-4">
+        <!-- Relief camp items inserted by JS -->
+      </ul>
+    </section>
+
+    <!-- NGO Dashboard -->
+    <section id="ngo" class="screen hidden">
+      <h2 class="text-2xl font-bold mb-4" data-i18n="ngo_title">NGO Dashboard</h2>
+      <div class="mb-6">
+        <canvas id="affectedAreasChart" aria-label="Affected Areas Chart" role="img"></canvas>
+      </div>
+      <div>
+        <canvas id="reliefNeedsChart" aria-label="Relief Needs Chart" role="img"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-200 text-center text-sm">
+    &copy; 2025 Disaster Response Platform
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
