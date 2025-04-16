@@ -1,119 +1,118 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
-    color: #1e293b; /* Tailwind slate-800 */
-  }
-  .fade-enter {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 300ms, transform 300ms;
-  }
-  .fade-exit {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 300ms, transform 300ms;
-  }
-  /* Design Enhancements */
-  header {
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
-    padding-top: 1.25rem; /* 5 */
-    padding-bottom: 1.25rem; /* 5 */
-    background: linear-gradient(90deg, #2563eb, #3b82f6);
-  }
-  header:hover {
-    background: linear-gradient(90deg, #1e40af, #2563eb);
-  }
-  nav button[aria-current="page"] {
-    border-bottom: 3px solid #2563eb; /* Tailwind blue-600 */
-    color: #2563eb;
-    font-weight: 700;
-  }
-  nav button.nav-btn {
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-  }
-  nav button.nav-btn:hover {
-    color: #1e40af;
-  }
-  h2.text-2xl {
-    font-size: 1.75rem; /* slightly larger */
-    letter-spacing: 0.05em;
-    border-bottom: 3px solid #2563eb; /* Tailwind blue-600 */
-    padding-bottom: 0.25rem;
-    margin-bottom: 1rem;
-    color: #1e293b;
-    text-shadow: 1px 1px 2px rgba(59, 130, 246, 0.5);
-  }
-  button {
-    border-radius: 0.75rem; /* rounded-lg */
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
-    background-image: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-    font-weight: 700;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    box-shadow: 0 8px 15px rgba(59, 130, 246, 0.4);
-  }
-  button:hover {
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.7);
-    background-image: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-    transform: translateY(-2px);
-  }
-  button:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.7);
-  }
-  button:active {
-    transform: scale(0.96);
-  }
-  #shelter-list li, #relief-list li {
-    background: white;
-    padding: 1.25rem;
-    border-radius: 1rem;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 6px solid #2563eb;
-  }
-  #shelter-list li:hover, #relief-list li:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
-    border-left-color: #1e40af;
-  }
-  footer {
-    border-top: 2px solid #2563eb;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    color: #1e293b;
-    background: linear-gradient(90deg, #bae6fd, #e0f2fe);
-    font-weight: 600;
-    letter-spacing: 0.05em;
-  }
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #065f46; /* Tailwind green-800 */
+}
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 300ms, transform 300ms;
+}
+/* Design Enhancements */
+header {
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(5, 150, 105, 0.3);
+  padding-top: 1.25rem; /* 5 */
+  padding-bottom: 1.25rem; /* 5 */
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+header:hover {
+  background: linear-gradient(90deg, #047857, #10b981);
+}
+nav button[aria-current="page"] {
+  border-bottom: 3px solid #10b981; /* Tailwind green-500 */
+  color: #10b981;
+  font-weight: 700;
+}
+nav button.nav-btn {
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+nav button.nav-btn:hover {
+  color: #047857;
+}
+h2.text-2xl {
+  font-size: 1.75rem; /* slightly larger */
+  letter-spacing: 0.05em;
+  border-bottom: 3px solid #10b981; /* Tailwind green-500 */
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+  color: #065f46;
+  text-shadow: 1px 1px 2px rgba(16, 185, 129, 0.5);
+}
+button {
+  border-radius: 0.75rem; /* rounded-lg */
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  background-image: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  color: white;
+  font-weight: 700;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 15px rgba(16, 185, 129, 0.4);
+}
+button:hover {
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.7);
+  background-image: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  transform: translateY(-2px);
+}
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.7);
+}
+button:active {
+  transform: scale(0.96);
+}
+#shelter-list li, #relief-list li {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid #10b981;
+}
+#shelter-list li:hover, #relief-list li:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(5, 150, 105, 0.3);
+  border-left-color: #047857;
+}
+footer {
+  border-top: 2px solid #10b981;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #065f46;
+  background: linear-gradient(90deg, #a7f3d0, #d1fae5);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+main {
+  max-width: 48rem; /* 768px */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(5, 150, 105, 0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
   main {
-    max-width: 48rem; /* 768px */
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    max-width: 64rem; /* 1024px */
   }
-  @media (min-width: 768px) {
-    main {
-      max-width: 64rem; /* 1024px */
-    }
-  }
-  
+}
