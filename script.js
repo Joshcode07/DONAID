@@ -272,6 +272,104 @@ function initReliefMap() {
   document.body.appendChild(leafletScript);
 }
 
+let lowPowerMode = false;
+
+function toggleLowPowerMode() {
+  lowPowerMode = !lowPowerMode;
+  const btn = document.getElementById("toggle-low-power");
+  btn.setAttribute("aria-pressed", lowPowerMode.toString());
+  if (lowPowerMode) {
+    document.body.classList.add("low-power-mode");
+    btn.classList.add("bg-gray-200", "text-gray-600");
+    btn.classList.remove("text-gray-700");
+    showLowPowerView();
+  } else {
+    document.body.classList.remove("low-power-mode");
+    btn.classList.remove("bg-gray-200", "text-gray-600");
+    btn.classList.add("text-gray-700");
+    hideLowPowerView();
+  }
+}
+
+function showLowPowerView() {
+  // Hide all main screens except a simplified low power info screen
+  const screens = document.querySelectorAll(".screen");
+  screens.forEach((screen) => {
+    screen.classList.add("hidden");
+  });
+
+  let lowPowerDiv = document.getElementById("low-power-view");
+  if (!lowPowerDiv) {
+    lowPowerDiv = document.createElement("section");
+    lowPowerDiv.id = "low-power-view";
+    lowPowerDiv.className = "screen p-6";
+    lowPowerDiv.innerHTML = `
+      <h2 class="text-xl font-bold mb-4">Low Power Mode - Offline Access</h2>
+      <p class="mb-4">This mode shows last known safe shelter information, emergency contacts, and basic safety instructions.</p>
+      <div id="offline-shelters" class="mb-4"></div>
+      <div id="emergency-contacts" class="mb-4">
+        <h3 class="font-semibold mb-2">Emergency Contacts</h3>
+        <ul>
+          <li>Police: 100</li>
+          <li>Fire: 101</li>
+          <li>Disaster Management: 108</li>
+        </ul>
+      </div>
+      <div id="basic-safety" class="mb-4">
+        <h3 class="font-semibold mb-2">Basic Safety Instructions</h3>
+        <ul>
+          <li>Stay calm and follow official instructions.</li>
+          <li>Keep emergency supplies ready.</li>
+          <li>Use battery-saving mode on your device.</li>
+          <li>Stay indoors if safe, or move to nearest shelter.</li>
+        </ul>
+      </div>
+    `;
+    document.querySelector("main").appendChild(lowPowerDiv);
+  }
+  lowPowerDiv.classList.remove("hidden");
+
+  // Load cached shelter data from localStorage or fallback to current shelters
+  const offlineSheltersDiv = document.getElementById("offline-shelters");
+  let cachedShelters = localStorage.getItem("cachedShelters");
+  if (cachedShelters) {
+    cachedShelters = JSON.parse(cachedShelters);
+  } else {
+    cachedShelters = shelters;
+    localStorage.setItem("cachedShelters", JSON.stringify(shelters));
+  }
+  offlineSheltersDiv.innerHTML = "<h3 class='font-semibold mb-2'>Last Known Safe Shelters</h3>";
+  cachedShelters.forEach((shelter) => {
+    const div = document.createElement("div");
+    div.className = "bg-white p-3 rounded mb-2 shadow-sm border border-gray-300";
+    div.innerHTML = `
+      <strong>${shelter.name}</strong><br/>
+      ${shelter.address}<br/>
+      Distance: ${shelter.distance}<br/>
+      Availability: ${shelter.availability}
+    `;
+    offlineSheltersDiv.appendChild(div);
+  });
+}
+
+function hideLowPowerView() {
+  const lowPowerDiv = document.getElementById("low-power-view");
+  if (lowPowerDiv) {
+    lowPowerDiv.classList.add("hidden");
+  }
+  // Show the home screen by default when exiting low power mode
+  const screens = document.querySelectorAll(".screen");
+  screens.forEach((screen) => {
+    if (screen.id === "home") {
+      screen.classList.remove("hidden");
+    } else {
+      screen.classList.add("hidden");
+    }
+  });
+}
+
+document.getElementById("toggle-low-power").addEventListener("click", toggleLowPowerMode);
+
 // Initialize map on page load
 window.addEventListener("load", () => {
   initReliefMap();
